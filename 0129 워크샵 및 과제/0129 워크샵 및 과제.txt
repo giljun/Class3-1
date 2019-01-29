@@ -1,0 +1,6 @@
+[오늘의 워크샵 선택]
+1. postfix 또는 infix 또는 prefix 로 입력되는 수식 정보를 읽어서 수식 트리를 만들고 3가지 traversal 기법 활용해서 출력해보기
+
+2. 이진탐색트리(Binary Search Tree) 구현하기 - 탐색, 삽입기능 필수, 삭제 선택
+
+2. max heap 또는 min heap을 구현해서 우선순위 큐 직접 구현해보기.
