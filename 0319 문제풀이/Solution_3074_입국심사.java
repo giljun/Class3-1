@@ -3,10 +3,10 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Solution_3074_ÀÔ±¹½É»ç {
+public class Solution_3074_ìž…êµ­ì‹¬ì‚¬ {
 	static int T, N, M;
 	static Scanner sc = new Scanner(System.in);
-	static int[] checker;
+	static long[] checker;
 
 	public static void main(String[] args) {
 		T = sc.nextInt();
@@ -15,31 +15,31 @@ public class Solution_3074_ÀÔ±¹½É»ç {
 			N = sc.nextInt();
 			M = sc.nextInt();
 			
-			checker = new int[N];
+			checker = new long[N];
 			for(int i=0; i<N; i++)
 				checker[i] = sc.nextInt();
 			
 			Arrays.sort(checker);
-			long maxT = checker[checker.length-1] * M; // Á¦ÀÏ ¿À·¡°É¸®´Â ½Ã°£ 10^9 * 10^9 = 10^18
+			long maxT = checker[checker.length-1] * M; // ì œì¼ ì˜¤ëž˜ê±¸ë¦¬ëŠ” ì‹œê°„ 10^9 * 10^9 = 10^18
 			
 			long left = 0;
 			long right = maxT;
-			long ans=maxT; // ÀÌº¸´Ù ÀÛÀº °ªÀÌ ³ªÅ¸³ª¸é °»½ÅÇÏ¸é¼­ ÃÖ¼Ò ÇÊ¿ä½Ã°£±îÁö ³»·Á°¡±â
+			long ans=maxT; // ì´ë³´ë‹¤ ìž‘ì€ ê°’ì´ ë‚˜íƒ€ë‚˜ë©´ ê°±ì‹ í•˜ë©´ì„œ ìµœì†Œ í•„ìš”ì‹œê°„ê¹Œì§€ ë‚´ë ¤ê°€ê¸°
 			
 			while(left<=right) {
 				long mid = (left+right)/2;
 				long sum=0; 
-				for(int ck: checker) { // ÁÖ¾îÁø mid ½Ã°£µ¿¾È ¸ðµç ½É»ç°üÀÌ Ã³¸®ÇÏ´Â ÀÎ¿øÀÇ ÃÑÇÕ °è»ê
+				for(long ck: checker) { // ì£¼ì–´ì§„ mid ì‹œê°„ë™ì•ˆ ëª¨ë“  ì‹¬ì‚¬ê´€ì´ ì²˜ë¦¬í•˜ëŠ” ì¸ì›ì˜ ì´í•© ê³„ì‚°
 					sum += mid/ck;
 				}
 				
-				if(M<=sum) { // ÇöÀç mid°¡ M¸íÀ» Ã³¸®ÇÏ±â¿¡ ÃæºÐÇÑ ½Ã°£ÀÎ °æ¿ì. 
-					if(mid<ans) { // ans¿¡ ÀÖ´Â °ªº¸´Ù ÀÛÀº midÀÌ³×? M¸í Ã³¸®´Â °¡´ÉÇÏ°í?? ±×·¸´Ù¸é °»½Å!
+				if(M<=sum) { // í˜„ìž¬ midê°€ Mëª…ì„ ì²˜ë¦¬í•˜ê¸°ì— ì¶©ë¶„í•œ ì‹œê°„ì¸ ê²½ìš°. 
+					if(mid<ans) { // ansì— ìžˆëŠ” ê°’ë³´ë‹¤ ìž‘ì€ midì´ë„¤? Mëª… ì²˜ë¦¬ëŠ” ê°€ëŠ¥í•˜ê³ ?? ê·¸ë ‡ë‹¤ë©´ ê°±ì‹ !
 						ans = mid;
 					}					
-					right = mid-1; // ½Ã°£ÀÌ ÃæºÐÇÏ´Ï±î ½Ã°£À» ÁÙ¿©º¸ÀÚ
+					right = mid-1; // ì‹œê°„ì´ ì¶©ë¶„í•˜ë‹ˆê¹Œ ì‹œê°„ì„ ì¤„ì—¬ë³´ìž
 				}else {
-					left = mid+1; // ½Ã°£ÀÌ ºÎÁ·ÇÏ´Ï±î ½Ã°£À» midº¸´Ù Å«½Ã°£À¸·Î ´Ã·Áº¸ÀÚ
+					left = mid+1; // ì‹œê°„ì´ ë¶€ì¡±í•˜ë‹ˆê¹Œ ì‹œê°„ì„ midë³´ë‹¤ í°ì‹œê°„ìœ¼ë¡œ ëŠ˜ë ¤ë³´ìž
 				}
 			}
 			
