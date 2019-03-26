@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Solution_2105_디저트_카페 {
+public class Solution_2105_디저트카페ver1 {
 	//     2105. [모의 SW 역량테스트] 디저트 카페 DFS
 	static int[][] map = new int[20][20];
 	static boolean[] v = new boolean[100+1];
